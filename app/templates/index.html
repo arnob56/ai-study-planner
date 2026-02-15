@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Study Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>AI Study Planner</h1>
+
+    <form method="post" action="/add">
+        <input type="text" name="name" placeholder="Subject" required>
+        <input type="number" name="difficulty" placeholder="Difficulty (1-5)" required>
+        <input type="date" name="exam_date" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Subjects</h2>
+    <ul>
+        {% for s in subjects %}
+            <li>{{ s.name }} - Difficulty: {{ s.difficulty }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/generate">Generate AI Plan</a>
+</div>
+</body>
+</html>
